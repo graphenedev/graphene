@@ -6,7 +6,7 @@
 <link rel="icon" type="image/x-icon" href="Graphene-logo.png" />
 <title>Graphene — The Ultimate Discord Bot</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
 <style>
   :root {
     --bg: #050810;
@@ -26,7 +26,7 @@
   body {
     background: var(--bg);
     color: var(--text);
-    font-family: 'Syne', sans-serif;
+    font-family: 'Sora', sans-serif;
     overflow-x: hidden;
     cursor: none;
   }
@@ -180,7 +180,7 @@
   .btn-primary {
     display: inline-flex; align-items: center; gap: 10px;
     background: linear-gradient(135deg, var(--accent), var(--accent2));
-    color: #050810; font-family: 'Syne', sans-serif;
+    color: #050810; font-family: 'Sora', sans-serif;
     font-weight: 700; font-size: 0.9rem; letter-spacing: 0.04em;
     padding: 14px 32px; border-radius: 12px; text-decoration: none;
     border: none; cursor: none; transition: all 0.3s; position: relative; overflow: hidden;
@@ -196,7 +196,7 @@
   .btn-ghost {
     display: inline-flex; align-items: center; gap: 10px;
     background: transparent; color: var(--text);
-    font-family: 'Syne', sans-serif; font-weight: 600;
+    font-family: 'Sora', sans-serif; font-weight: 600;
     font-size: 0.9rem; letter-spacing: 0.04em;
     padding: 14px 32px; border-radius: 12px; text-decoration: none;
     border: 1px solid rgba(255,255,255,0.1); cursor: none; transition: all 0.3s;
@@ -372,6 +372,12 @@
   .orbit-dot { width: 9px; height: 9px; background: var(--accent); border-radius: 50%; position: absolute; top: -4.5px; left: 50%; transform: translateX(-50%); box-shadow: 0 0 12px var(--accent), 0 0 4px #fff; }
   .orbit-dot-2 { background: var(--accent2); box-shadow: 0 0 12px var(--accent2), 0 0 4px #fff; }
   .orbit-dot-3 { background: var(--accent3); box-shadow: 0 0 12px var(--accent3), 0 0 4px #fff; }
+  /* Second electron on orbit-1 (180° opposite) */
+  .orbit-dot-180 { top: auto; bottom: -4.5px; left: 50%; transform: translateX(-50%); }
+  /* Extra electrons on orbit-2 at 90°, 180°, 270° */
+  .orbit-dot-90  { top: 50%; left: auto; right: -4.5px; transform: translateY(-50%); }
+  .orbit-dot-180b { top: auto; bottom: -4.5px; left: 50%; transform: translateX(-50%); }
+  .orbit-dot-270 { top: 50%; left: -4.5px; right: auto; transform: translateY(-50%); }
   .orbit-label {
     position: absolute; bottom: -32px; left: 50%; transform: translateX(-50%);
     font-family: 'DM Mono', monospace; font-size: 0.68rem; color: var(--muted);
@@ -631,13 +637,13 @@
     </div>
 
     <div class="cmd-pane" id="pane-games">
-      <div class="cmd-item"><span class="cmd-slash">/</span><span class="cmd-name">truth</span><span class="cmd-args">[rating]</span><span class="cmd-desc">Random truth question</span></div>
-      <div class="cmd-item"><span class="cmd-slash">/</span><span class="cmd-name">dare</span><span class="cmd-args">[rating]</span><span class="cmd-desc">Random dare challenge</span></div>
-      <div class="cmd-item"><span class="cmd-slash">/</span><span class="cmd-name">tod</span><span class="cmd-args">[rating]</span><span class="cmd-desc">Random truth or dare</span></div>
-      <div class="cmd-item"><span class="cmd-slash">/</span><span class="cmd-name">paranoia</span><span class="cmd-args">[rating]</span><span class="cmd-desc">"Who's most likely to…" question</span></div>
-      <div class="cmd-item"><span class="cmd-slash">/</span><span class="cmd-name">wyr</span><span class="cmd-args">[rating]</span><span class="cmd-desc">Would You Rather</span></div>
-      <div class="cmd-item"><span class="cmd-slash">/</span><span class="cmd-name">nhie</span><span class="cmd-args">[rating]</span><span class="cmd-desc">Never Have I Ever</span></div>
-      <div class="cmd-item"><span class="cmd-slash">/</span><span class="cmd-name">random</span><span class="cmd-args">[rating]</span><span class="cmd-desc">Random card from any game mode</span></div>
+      <div class="cmd-item"><span class="cmd-slash">/</span><span class="cmd-name">game truth</span><span class="cmd-args">[rating]</span><span class="cmd-desc">Random truth question</span></div>
+      <div class="cmd-item"><span class="cmd-slash">/</span><span class="cmd-name">game dare</span><span class="cmd-args">[rating]</span><span class="cmd-desc">Random dare challenge</span></div>
+      <div class="cmd-item"><span class="cmd-slash">/</span><span class="cmd-name">game tod</span><span class="cmd-args">[rating]</span><span class="cmd-desc">Random truth or dare</span></div>
+      <div class="cmd-item"><span class="cmd-slash">/</span><span class="cmd-name">game paranoia</span><span class="cmd-args">[rating]</span><span class="cmd-desc">"Who's most likely to…" question</span></div>
+      <div class="cmd-item"><span class="cmd-slash">/</span><span class="cmd-name">game wyr</span><span class="cmd-args">[rating]</span><span class="cmd-desc">Would You Rather</span></div>
+      <div class="cmd-item"><span class="cmd-slash">/</span><span class="cmd-name">game nhie</span><span class="cmd-args">[rating]</span><span class="cmd-desc">Never Have I Ever</span></div>
+      <div class="cmd-item"><span class="cmd-slash">/</span><span class="cmd-name">game random</span><span class="cmd-args">[rating]</span><span class="cmd-desc">Random card from any game mode</span></div>
     </div>
 
     <div class="cmd-pane" id="pane-fun">
@@ -665,30 +671,49 @@
       <div class="cmd-item"><span class="cmd-slash">/</span><span class="cmd-name">userinfo</span><span class="cmd-args">[@member]</span><span class="cmd-desc">Detailed user information</span></div>
       <div class="cmd-item"><span class="cmd-slash">/</span><span class="cmd-name">stats</span><span class="cmd-args"></span><span class="cmd-desc">Bot statistics and uptime</span></div>
       <div class="cmd-item"><span class="cmd-slash">/</span><span class="cmd-name">afk</span><span class="cmd-args">reason</span><span class="cmd-desc">Set AFK — alerts anyone who pings you</span></div>
-      <div class="cmd-item"><span class="cmd-slash">/</span><span class="cmd-name">msg_pub</span><span class="cmd-args">#channel message</span><span class="cmd-desc">Send a message as the bot</span></div>
-      <div class="cmd-item"><span class="cmd-slash">/</span><span class="cmd-name">msg_priv</span><span class="cmd-args">@member message</span><span class="cmd-desc">Send an anonymous DM</span></div>
+      <div class="cmd-item"><span class="cmd-slash">/</span><span class="cmd-name">msg_pub</span><span class="cmd-args">text</span><span class="cmd-desc">Send a message as the bot</span></div>
+      <div class="cmd-item"><span class="cmd-slash">/</span><span class="cmd-name">msg_priv</span><span class="cmd-args">@member text</span><span class="cmd-desc">Send an anonymous DM</span></div>
+      <div class="cmd-item"><span class="cmd-slash">/</span><span class="cmd-name">iplookup</span><span class="cmd-args">ip</span><span class="cmd-desc">Look up info about an IPv4 address</span></div>
+      <div class="cmd-item"><span class="cmd-slash">/</span><span class="cmd-name">btcprice</span><span class="cmd-args"></span><span class="cmd-desc">Bitcoin price with 1-year USD chart</span></div>
+      <div class="cmd-item"><span class="cmd-slash">/</span><span class="cmd-name">ethprice</span><span class="cmd-args"></span><span class="cmd-desc">Ethereum price with 1-year USD chart</span></div>
+      <div class="cmd-item"><span class="cmd-slash">/</span><span class="cmd-name">exchangerate</span><span class="cmd-args">from_currency to_currency</span><span class="cmd-desc">Convert between currencies</span></div>
       <div class="cmd-item"><span class="cmd-slash">/</span><span class="cmd-name">ai</span><span class="cmd-args">question</span><span class="cmd-desc">Ask the Gemini AI assistant anything</span></div>
       <div class="cmd-item"><span class="cmd-slash">/</span><span class="cmd-name">setbirthday</span><span class="cmd-args">MM-DD</span><span class="cmd-desc">Save your birthday for a DM on the day</span></div>
       <div class="cmd-item"><span class="cmd-slash">/</span><span class="cmd-name">mybirthday</span><span class="cmd-args"></span><span class="cmd-desc">Check your saved birthday</span></div>
+      <div class="cmd-item"><span class="cmd-slash">/</span><span class="cmd-name">removebirthday</span><span class="cmd-args"></span><span class="cmd-desc">Remove your saved birthday</span></div>
       <div class="cmd-item"><span class="cmd-slash">/</span><span class="cmd-name">apply</span><span class="cmd-args"></span><span class="cmd-desc">Submit a staff application via DMs</span></div>
       <div class="cmd-item"><span class="cmd-slash">/</span><span class="cmd-name">help</span><span class="cmd-args"></span><span class="cmd-desc">Interactive help menu</span></div>
     </div>
 
     <div class="cmd-pane" id="pane-setup">
       <div class="cmd-item"><span class="cmd-slash">/</span><span class="cmd-name">setwelcome</span><span class="cmd-args">#channel</span><span class="cmd-desc">Set the welcome channel</span></div>
+      <div class="cmd-item"><span class="cmd-slash">/</span><span class="cmd-name">removewelcome</span><span class="cmd-args"></span><span class="cmd-desc">Remove the welcome channel</span></div>
       <div class="cmd-item"><span class="cmd-slash">/</span><span class="cmd-name">setwelcomedm</span><span class="cmd-args">on | off</span><span class="cmd-desc">Toggle DM welcoming for new members</span></div>
+      <div class="cmd-item"><span class="cmd-slash">/</span><span class="cmd-name">welcome_test</span><span class="cmd-args"></span><span class="cmd-desc">Test the welcome message</span></div>
       <div class="cmd-item"><span class="cmd-slash">/</span><span class="cmd-name">setautorole</span><span class="cmd-args">@role</span><span class="cmd-desc">Role automatically assigned on join</span></div>
+      <div class="cmd-item"><span class="cmd-slash">/</span><span class="cmd-name">removeautorole</span><span class="cmd-args"></span><span class="cmd-desc">Remove the auto-role</span></div>
       <div class="cmd-item"><span class="cmd-slash">/</span><span class="cmd-name">setlogchannel</span><span class="cmd-args">#channel</span><span class="cmd-desc">Moderation event log channel</span></div>
+      <div class="cmd-item"><span class="cmd-slash">/</span><span class="cmd-name">removelogchannel</span><span class="cmd-args"></span><span class="cmd-desc">Remove the mod log channel</span></div>
       <div class="cmd-item"><span class="cmd-slash">/</span><span class="cmd-name">setboostchannel</span><span class="cmd-args">#channel</span><span class="cmd-desc">Channel for boost alerts</span></div>
+      <div class="cmd-item"><span class="cmd-slash">/</span><span class="cmd-name">removeboostchannel</span><span class="cmd-args"></span><span class="cmd-desc">Remove the boost alert channel</span></div>
       <div class="cmd-item"><span class="cmd-slash">/</span><span class="cmd-name">setj2c</span><span class="cmd-args">#voice</span><span class="cmd-desc">Enable Join-to-Create voice channels</span></div>
+      <div class="cmd-item"><span class="cmd-slash">/</span><span class="cmd-name">removej2c</span><span class="cmd-args"></span><span class="cmd-desc">Remove the Join-to-Create channel</span></div>
       <div class="cmd-item"><span class="cmd-slash">/</span><span class="cmd-name">setticketcategory</span><span class="cmd-args">category</span><span class="cmd-desc">Enable the ticket system</span></div>
+      <div class="cmd-item"><span class="cmd-slash">/</span><span class="cmd-name">removeticketcategory</span><span class="cmd-args"></span><span class="cmd-desc">Disable the ticketing system</span></div>
       <div class="cmd-item"><span class="cmd-slash">/</span><span class="cmd-name">ticket_setup</span><span class="cmd-args"></span><span class="cmd-desc">Post the support ticket panel</span></div>
       <div class="cmd-item"><span class="cmd-slash">/</span><span class="cmd-name">verificationsetup</span><span class="cmd-args">@role</span><span class="cmd-desc">Set the role granted on verification</span></div>
+      <div class="cmd-item"><span class="cmd-slash">/</span><span class="cmd-name">removeverification</span><span class="cmd-args"></span><span class="cmd-desc">Remove the verification configuration</span></div>
       <div class="cmd-item"><span class="cmd-slash">/</span><span class="cmd-name">verificationpanel</span><span class="cmd-args"></span><span class="cmd-desc">Post the verification panel</span></div>
       <div class="cmd-item"><span class="cmd-slash">/</span><span class="cmd-name">reactionroleadd</span><span class="cmd-args">panel_name roles…</span><span class="cmd-desc">Create a reaction role button panel (up to 10)</span></div>
+      <div class="cmd-item"><span class="cmd-slash">/</span><span class="cmd-name">reactionpanel</span><span class="cmd-args">panel_name</span><span class="cmd-desc">Post a reaction role panel</span></div>
+      <div class="cmd-item"><span class="cmd-slash">/</span><span class="cmd-name">reactionpaneldelete</span><span class="cmd-args">panel_name</span><span class="cmd-desc">Delete a reaction role panel</span></div>
       <div class="cmd-item"><span class="cmd-slash">/</span><span class="cmd-name">setloyalty</span><span class="cmd-args">@role</span><span class="cmd-desc">Auto loyalty role for users with "Graphene" in their name</span></div>
+      <div class="cmd-item"><span class="cmd-slash">/</span><span class="cmd-name">removeloyalty</span><span class="cmd-args"></span><span class="cmd-desc">Remove the loyalty role</span></div>
       <div class="cmd-item"><span class="cmd-slash">/</span><span class="cmd-name">trigger_create</span><span class="cmd-args">word response</span><span class="cmd-desc">Create an auto-response trigger</span></div>
+      <div class="cmd-item"><span class="cmd-slash">/</span><span class="cmd-name">trigger_remove</span><span class="cmd-args">word</span><span class="cmd-desc">Remove an auto-response trigger</span></div>
+      <div class="cmd-item"><span class="cmd-slash">/</span><span class="cmd-name">trigger_list</span><span class="cmd-args"></span><span class="cmd-desc">List all auto-response triggers</span></div>
       <div class="cmd-item"><span class="cmd-slash">/</span><span class="cmd-name">setappchannel</span><span class="cmd-args">#channel</span><span class="cmd-desc">Log channel for staff applications</span></div>
+      <div class="cmd-item"><span class="cmd-slash">/</span><span class="cmd-name">removeappchannel</span><span class="cmd-args"></span><span class="cmd-desc">Disable staff applications</span></div>
     </div>
   </div>
 </section>
@@ -731,13 +756,23 @@
 
   <div class="why-grid">
     <div class="why-visual">
-      <div class="orbit orbit-1"><div class="orbit-dot"></div></div>
-      <div class="orbit orbit-2"><div class="orbit-dot orbit-dot-2"></div></div>
-      <div class="orbit orbit-3"><div class="orbit-dot orbit-dot-3"></div></div>
+      <!-- Inner shell: 2 electrons (1s²) -->
+      <div class="orbit orbit-1">
+        <div class="orbit-dot"></div>
+        <div class="orbit-dot orbit-dot-180"></div>
+      </div>
+      <!-- Outer shell: 4 electrons (2s²2p²) -->
+      <div class="orbit orbit-2">
+        <div class="orbit-dot orbit-dot-2"></div>
+        <div class="orbit-dot orbit-dot-2 orbit-dot-90"></div>
+        <div class="orbit-dot orbit-dot-2 orbit-dot-180b"></div>
+        <div class="orbit-dot orbit-dot-2 orbit-dot-270"></div>
+      </div>
+      <div class="orbit orbit-3"></div>
       <div class="mol-center">
         <canvas id="nucleusCanvas" width="110" height="110"></canvas>
       </div>
-      <div class="orbit-label">¹²C · 6 protons · 6 neutrons</div>
+      <div class="orbit-label">¹²C · 6 protons · 6 neutrons · 6 electrons</div>
     </div>
     <div class="why-points reveal">
       <div class="why-point">
