@@ -21,13 +21,14 @@
   }
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; }
+  html { scroll-behavior: smooth; overflow-x: hidden; max-width: 100%; }
 
   body {
     background: var(--bg);
     color: var(--text);
     font-family: 'Sora', sans-serif;
     overflow-x: hidden;
+    max-width: 100%;
     cursor: none;
   }
 
@@ -424,6 +425,35 @@
     .why-grid { grid-template-columns: 1fr; }
     .why-visual { display: none; }
     .nav-links { display: none; }
+  }
+
+  /* Prevent ALL horizontal overflow on mobile */
+  @media (max-width: 600px) {
+    section, nav, footer, .hero, .features, .commands, .terminal-section, .why, .cta-section {
+      max-width: 100vw;
+      overflow-x: hidden;
+    }
+    .hero-stats {
+      gap: 20px;
+      padding: 16px 20px;
+    }
+    .stat-item[style] {
+      border-left: none !important;
+      padding-left: 0 !important;
+    }
+    .hero-cta-group {
+      flex-direction: column;
+      align-items: center;
+    }
+    .cmd-tabs {
+      gap: 6px;
+    }
+    .cmd-desc {
+      display: none;
+    }
+    .features-grid {
+      border-radius: 12px;
+    }
   }
 </style>
 </head>
